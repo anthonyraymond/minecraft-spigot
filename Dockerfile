@@ -2,7 +2,7 @@ FROM hypriot/rpi-java:1.8.0
 
 #Download last version of spigot
 RUN mkdir -p /webserver \
-      && wget http://ci.getbukkit.org/job/Spigot/lastSuccessfulBuild/artifact/spigot-1.11.2.jar -O /webserver/minecraft_server.jar
+      && wget https://cdn.getbukkit.org/spigot/spigot-1.11.2.jar -O /webserver/minecraft_server.jar
 
 EXPOSE 25565
 
