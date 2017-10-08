@@ -1,4 +1,4 @@
-FROM hypriot/rpi-java:1.8.0
+FROM hypriot/rpi-java:jre-1.8.111
 
 #Download last version of spigot
 RUN mkdir -p /webserver \
