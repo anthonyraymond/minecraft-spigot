@@ -1,8 +1,13 @@
 FROM hypriot/rpi-java:jre-1.8.111
 
 #Download last version of spigot
-RUN mkdir -p /webserver \
-      && wget https://cdn.getbukkit.org/spigot/spigot-1.12-pre5.jar -O /webserver/minecraft_server.jar
+RUN apt-get update \
+        && apt-get install wget \
+        && mkdir -p /webserver \
+        && wget https://cdn.getbukkit.org/spigot/spigot-1.12-pre5.jar -O /webserver/minecraft_server.jar \
+        && apt-get remove wget \
+        && apt-get autoremove --purge \
+        && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 25565
 
