@@ -1,18 +1,22 @@
-# rpi-minecraft-spigot
-A lightweight minecraft server (spigot) embedded in a  Docker container, designed for Raspberry pi.
+## Building spigot
+    docker build -t spigot .
 
-## Building rpi-minecraft-spigot
-Everytime the image is built, it **automatically download the lastest version** from [Spigot's Jenkins][1].
+## Running spigot
+    docker run --restart=always -d -v /<PATH>/<TO>/<DATA>:/data -p 25565:25565 --name="minecraft" spigot
 
-    docker build -t anthonyraymond/rpi-minecraft-spigot .
+## Upgrading between versions
+- Update the `SPIGOT_VERSION` 
+- Rebuild the image
 
 
-## Running rpi-minecraft-spigot
-    docker run --restart=always -d -v /<PATH>/<TO>/<DATA>:/data -p 25565:25565 --name="minecraft-server" anthonyraymond/rpi-minecraft-spigot
+*When upgrading to the next major version:*
+- Upgrade to the latest minor of th ecurrent major version (ie, if you are in 1.14.1 and waht to go up to 1.15.x, upgrade to 1.14) first.
+- Rerun the server with the argument --forceUpgrade `docker run ... spigot --forceUpgrade`
+- Wait for the `Upgrading all chunks` to complete
+- Stop the server
+- Upgrade to the next major version
 
 #### What to put into the /data folder
 Nothing is needed for the server to run.
 Howether this is the place to put your minecraft config files, and realms if you already have these.
 
-
-[1]:(http://ci.getbukkit.org/job/Spigot/lastSuccessfulBuild/artifact/)
