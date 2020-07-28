@@ -2,7 +2,7 @@
     docker build -t spigot .
 
 ## Running spigot
-    docker run -d -v /<PATH>/<TO>/<DATA>:/data -p 25565:25565 --name="minecraft" spigot
+    docker run -d -v /<local-filesystem-path>:/data -p 25565:25565 --name="minecraft" spigot
 
 ## Upgrading between versions
 - Update the `SPIGOT_VERSION` 
