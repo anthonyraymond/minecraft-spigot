@@ -10,7 +10,7 @@
 
 
 *When upgrading to the next major version:*
-- Upgrade to the latest minor of the current major version (ie, if you are in 1.14.1 and waht to go up to 1.15.x, upgrade to the latest 1.14 build) first.
+- Upgrade to the latest minor of the current major version (ie, if you are in 1.14.1 and want to go up to 1.15.x, upgrade to the latest 1.14 build) first.
 - Rerun the server with the argument --forceUpgrade `docker run ... spigot --forceUpgrade`
 - Wait for the `Upgrading all chunks` to complete
 - Stop the server
